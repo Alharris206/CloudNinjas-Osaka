@@ -37,7 +37,7 @@ resource "aws_launch_template" "ninjas_LT" {
     </head>
     <body>
     <div>
-    <h1>A true Ninja Doesnt Make A Splash</h1>
+    <h1>A True Ninja Doesnt Make A Splash</h1>
     <h1>Cloud Ninjas</h1>
     <p><b>Instance Name:</b> $(hostname -f) </p>
     <p><b>Instance Private Ip Address: </b> $local_ipv4</p>
