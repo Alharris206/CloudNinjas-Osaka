@@ -37,6 +37,7 @@ resource "aws_launch_template" "ninjas_LT" {
     </head>
     <body>
     <div>
+    <iframe src="https://giphy.com/embed/EaoPSZC1r7g3oUcHmj" width="480" height="400" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/martin-season-1-martin-tv-show-EaoPSZC1r7g3oUcHmj">via GIPHY</a></p>
     <h1>A True Ninja Doesnt Make A Splash</h1>
     <h1>Cloud Ninjas</h1>
     <p><b>Instance Name:</b> $(hostname -f) </p>
