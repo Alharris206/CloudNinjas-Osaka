@@ -1,7 +1,7 @@
 resource "aws_launch_template" "ninjas_LT" {
   name_prefix   = "ninjas_LT"
   image_id      = "ami-0d7bfdca2fa8d3cc4"  
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
 
   key_name = "ninja-key"
 
