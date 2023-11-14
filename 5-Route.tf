@@ -58,14 +58,31 @@ resource "aws_route_table_association" "private-ap-northeast-3a" {
 resource "aws_route_table_association" "private-ap-northeast-3b" {
   subnet_id      = aws_subnet.private-ap-northeast-3b.id
   route_table_id = aws_route_table.private.id
+
+
+}
+
+resource "aws_route_table_association" "private-ap-northeast-3c" {
+  subnet_id      = aws_subnet.private-ap-northeast-3c.id
+  route_table_id = aws_route_table.private.id
+
+
 }
 
 resource "aws_route_table_association" "public-ap-northeast-3a" {
   subnet_id      = aws_subnet.public-ap-northeast-3a.id
   route_table_id = aws_route_table.public.id
+
 }
 
 resource "aws_route_table_association" "public-ap-northeast-3b" {
   subnet_id      = aws_subnet.public-ap-northeast-3b.id
   route_table_id = aws_route_table.public.id
+
+}
+
+resource "aws_route_table_association" "public-ap-northeast-3c" {
+  subnet_id      = aws_subnet.public-ap-northeast-3c.id
+  route_table_id = aws_route_table.public.id
+
 }
