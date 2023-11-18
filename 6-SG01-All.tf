@@ -1,6 +1,6 @@
-resource "aws_security_group" "ninjas-sg01-servers" {
-  name        = "ninjas-sg01-servers"
-  description = "ninjas-sg01-servers"
+resource "aws_security_group" "ninjas-80-sg01-servers" {
+  name        = "ninjas-80-sg01-servers"
+  description = "ninjas-80-sg01-servers"
   vpc_id      = aws_vpc.ninjas.id
 
   ingress {
@@ -36,7 +36,7 @@ resource "aws_security_group" "ninjas-sg01-servers" {
   }
 
   tags = {
-    Name    = "ninjas-sg01-servers"
+    Name    = "ninjas-80-sg01-servers"
     Service = "salvage"
     Owner   = "WeylandCorp"
     Planet  = "LV426"
@@ -48,15 +48,15 @@ resource "aws_security_group" "ninjas-sg01-servers" {
 
 
 
-resource "aws_security_group" "ninjas-sg02-LB01" {
-  name        = "ninjas-sg02-LB01"
-  description = "ninjas-sg02-LB01"
+resource "aws_security_group" "ninjas-443-sg02-LB01" {
+  name        = "ninjas-443-sg02-LB01"
+  description = "ninjas-443-sg02-LB01"
   vpc_id      = aws_vpc.ninjas.id
 
   ingress {
     description = "MyHomePage"
-    from_port   = 80
-    to_port     = 80
+    from_port   = 443
+    to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -69,7 +69,7 @@ resource "aws_security_group" "ninjas-sg02-LB01" {
   }
 
   tags = {
-    Name    = "ninjas-sg02-LB01"
+    Name    = "ninjas-443-sg02-LB01"
     Service = "salvage"
     Owner   = "WeylandCorp"
     Planet  = "LV426"
