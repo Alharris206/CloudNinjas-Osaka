@@ -1,5 +1,5 @@
-resource "aws_lb_target_group" "ninjas_tg" {
-  name     = "ninjas-target-group"
+resource "aws_lb_target_group" "ninjas-lb_tg" {
+  name     = "ninjas-lb-target-group"
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.ninjas.id
