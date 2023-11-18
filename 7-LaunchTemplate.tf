@@ -5,7 +5,7 @@ resource "aws_launch_template" "ninjas_LT" {
 
   key_name = "ninja-key"
 
-  vpc_security_group_ids = [aws_security_group.ninjas-sg01-servers.id]
+  vpc_security_group_ids = [aws_security_group.ninjas-80-sg01-servers.id]
 
   user_data = base64encode(<<-EOF
     #!/bin/bash
