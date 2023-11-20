@@ -30,7 +30,7 @@ resource "aws_lb_listener" "http" {
 }
 
 data "aws_acm_certificate" "cert" {
-  domain = "plumbersportal32.com"
+  domain = "devopscloudninja.com"
   most_recent = true
 }
 
