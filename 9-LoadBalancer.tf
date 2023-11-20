@@ -2,7 +2,7 @@ resource "aws_lb" "ninjas_alb" {
   name               = "ninjas-load-balancer"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.ninjas-sg02-LB01.id]
+  security_groups    = [aws_security_group.ninjas-443-sg02-LB01.id]
   subnets            = [
     aws_subnet.public-ap-northeast-3a.id,
     aws_subnet.public-ap-northeast-3b.id,
