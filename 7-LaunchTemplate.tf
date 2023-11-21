@@ -45,6 +45,7 @@ resource "aws_launch_template" "ninjas_LT" {
     <p><b>Availability Zone: </b> $az</p>
     <p><b>Virtual Private Cloud (VPC):</b> $vpc</p>
     </div>
+    <body style="background-color:red;">
     </body>
     </html>
     HTML
