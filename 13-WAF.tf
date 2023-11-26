@@ -56,6 +56,141 @@ resource "aws_wafv2_web_acl" "ninjas_waf_acl" {
     sampled_requests_enabled   = false
   }
 
+          # Amazon IP Reputation List
+    rule {
+      name     = "AWSManagedRulesAmazonIpReputationList"
+      priority = 3
+
+      override_action {
+        none {}
+      }
+
+      statement {
+        managed_rule_group_statement {
+          name        = "AWSManagedRulesAmazonIpReputationList"
+          vendor_name = "AWS"
+        }
+      }
+
+      visibility_config {
+        cloudwatch_metrics_enabled = false
+        metric_name                = "AWSManagedRulesAmazonIpReputationList"
+        sampled_requests_enabled   = false
+      }
+    }
+
+    # Anonymous IP List
+    rule {
+      name     = "AWSManagedRulesAnonymousIpList"
+      priority = 4
+
+      override_action {
+        none {}
+      }
+
+      statement {
+        managed_rule_group_statement {
+          name        = "AWSManagedRulesAnonymousIpList"
+          vendor_name = "AWS"
+        }
+      }
+
+      visibility_config {
+        cloudwatch_metrics_enabled = false
+        metric_name                = "AWSManagedRulesAnonymousIpList"
+        sampled_requests_enabled   = false
+      }
+    }
+
+    # CORS Rule Set Custom Rule (Placeholder)
+    /*rule {
+      name     = "CORSRuleSetCustomRule"
+      priority = 5
+
+      action {
+        allow {} # or block, based on your CORS policy
+      }
+
+      # Placeholder for custom statement
+      statement {
+        # Custom statement definition
+      }
+
+      visibility_config {
+        cloudwatch_metrics_enabled = false
+        metric_name                = "CORSRuleSetCustomRule"
+        sampled_requests_enabled   = false
+      }
+    }*/
+
+    # Known Bad Inputs
+    rule {
+      name     = "AWSManagedRulesKnownBadInputsRuleSet"
+      priority = 6
+
+      override_action {
+        none {}
+      }
+
+      statement {
+        managed_rule_group_statement {
+          name        = "AWSManagedRulesKnownBadInputsRuleSet"
+          vendor_name = "AWS"
+        }
+      }
+
+      visibility_config {
+        cloudwatch_metrics_enabled = false
+        metric_name                = "AWSManagedRulesKnownBadInputs"
+        sampled_requests_enabled   = false
+      }
+    }
+
+    # Linux Operating System
+    rule {
+      name     = "AWSManagedRulesLinuxRuleSet"
+      priority = 7
+
+      override_action {
+        none {}
+      }
+
+      statement {
+        managed_rule_group_statement {
+          name        = "AWSManagedRulesLinuxRuleSet"
+          vendor_name = "AWS"
+        }
+      }
+
+      visibility_config {
+        cloudwatch_metrics_enabled = false
+        metric_name                = "AWSManagedRulesLinuxRuleSet"
+        sampled_requests_enabled   = false
+      }
+    }
+
+    # Geo-blocking rule to block traffic from Russia
+  rule {
+    name     = "BlockRussia"
+    priority = 8  # Adjust the priority as needed
+
+    action {
+      block {}
+    }
+
+    statement {
+      geo_match_statement {
+        country_codes = ["RU"]  # Country code for Russia
+      }
+    }
+
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "BlockRussia"
+      sampled_requests_enabled   = true
+    }
+  }
+
   tags = {
     Name    = "ninjas-web-acl"
     Service = "salvage"
