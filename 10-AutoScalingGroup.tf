@@ -1,7 +1,7 @@
 resource "aws_autoscaling_group" "ninjas_asg" {
   name_prefix           = "ninjas-auto-scaling-group-"
-  min_size              = 4
-  max_size              = 12
+  min_size              = 6
+  max_size              = 15
   desired_capacity      = 8
   vpc_zone_identifier   = [
     aws_subnet.private-ap-northeast-3a.id,
